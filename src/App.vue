@@ -11,7 +11,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="test assignment" />
       <nav>
         <RouterLink to="/">Settings</RouterLink>
-        <RouterLink to="/about">Order Book</RouterLink>
+        <RouterLink to="/order">Order Book</RouterLink>
       </nav>
     </div>
   </header>
