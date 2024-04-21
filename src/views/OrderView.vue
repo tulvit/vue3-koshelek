@@ -1,7 +1,16 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+import OrderBook from '../components/OrderBook.vue'
+
+const props = defineProps({ title: { type: String } })
+</script>
+
 <template>
-  <div class="about">
-    <h1>Order Book</h1>
-  </div>
+  <main>
+    <h1>{{ props.title }}</h1>
+    <OrderBook title="Order book" />
+  </main>
 </template>
 
 <style>
