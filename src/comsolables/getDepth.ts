@@ -1,11 +1,12 @@
 import { ref } from 'vue'
 
-const getDepth = (symbol: string) => {
+const getDepth = () => {
   const depth = ref([])
   const error = ref(null)
 
-  const load = async () => {
+  const load = async (symbol: string) => {
     try {
+      console.log('New request', symbol)
       const data = await fetch(`https://api.binance.com/api/v3/depth?symbol=${symbol}`)
       if (!data.ok) {
         throw Error('no data available')
