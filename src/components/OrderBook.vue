@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useMarketDepthStore } from '@/stores/market'
+import { useSymbolStore } from '@/stores/symbol'
 
 const props = defineProps({ title: { type: String } })
 const marketDepth = useMarketDepthStore()
+const symbol = useSymbolStore()
 </script>
 
 <template>
   <h2>{{ props.title }}</h2>
-  <h1>Bids</h1>
+  <h3>{{ symbol.symbol.title }}</h3>
+  <h4>Bids</h4>
   <v-table>
     <thead>
       <tr>
