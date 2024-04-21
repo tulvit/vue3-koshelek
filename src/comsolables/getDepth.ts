@@ -6,7 +6,6 @@ const getDepth = () => {
 
   const load = async (symbol: string) => {
     try {
-      console.log('New request', symbol)
       const data = await fetch(`https://api.binance.com/api/v3/depth?symbol=${symbol}`)
       if (!data.ok) {
         throw Error('no data available')
