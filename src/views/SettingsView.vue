@@ -5,9 +5,9 @@ import SelectPair from '../components/SelectPair.vue'
 import PairLog from '../components/PairLog.vue'
 
 const hardcodedOptions = ref([
-  { text: 'BTC / USDT', value: 'BTCUSDT' },
-  { text: 'BNB / BTC', value: 'BNBBTC' },
-  { text: 'ETH / BTC', value: 'ETHBTC' }
+  { title: 'BTC / USDT', value: 'BTCUSDT' },
+  { title: 'BNB / BTC', value: 'BNBBTC' },
+  { title: 'ETH / BTC', value: 'ETHBTC' }
 ])
 </script>
 

@@ -13,9 +13,5 @@ watch(selected, (selected, prevSelected) => {
 </script>
 
 <template>
-  <select v-model="selected">
-    <option v-for="(option, index) in props.options" :value="option.value" :key="index">
-      {{ option.text }}
-    </option>
-  </select>
+  <v-select label="Select" :items="options" v-model="selected"></v-select>
 </template>
