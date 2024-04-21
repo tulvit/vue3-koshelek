@@ -4,6 +4,8 @@ import { ref } from 'vue'
 import SelectPair from '../components/SelectPair.vue'
 import PairLog from '../components/PairLog.vue'
 
+const props = defineProps({ title: { type: String } })
+
 const hardcodedOptions = ref([
   { title: 'BTC / USDT', value: 'BTCUSDT' },
   { title: 'BNB / BTC', value: 'BNBBTC' },
@@ -13,8 +15,8 @@ const hardcodedOptions = ref([
 
 <template>
   <main>
-    <h1>Settings</h1>
-    <SelectPair :options="hardcodedOptions" />
-    <PairLog />
+    <h1>{{ props.title }}</h1>
+    <SelectPair :options="hardcodedOptions" title="Settings" />
+    <PairLog title="Change log" />
   </main>
 </template>

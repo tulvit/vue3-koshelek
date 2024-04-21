@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useLogStore } from '@/stores/log'
 
+const props = defineProps({ title: { type: String } })
 const log = useLogStore()
 
 const formatDate = (date: Date) => {
@@ -19,7 +20,7 @@ const formatDate = (date: Date) => {
 </script>
 
 <template>
-  <h2>Change Log</h2>
+  <h2>{{ props.title }}</h2>
   <v-list lines="one">
     <v-list-item
       v-for="item in log.log"
