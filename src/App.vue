@@ -1,21 +1,17 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import TheHeader from './components/TheHeader.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="test assignment" />
-      <nav>
-        <RouterLink to="/">Settings</RouterLink>
-        <RouterLink to="/order">Order Book</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <TheHeader
+    title="Test assignment"
+    :links="[
+      { to: '/', title: 'Settings' },
+      { to: '/order', title: 'Order Book' }
+    ]"
+  />
   <RouterView />
 </template>
 
