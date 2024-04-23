@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useMarketDepthStore } from '@/stores/market'
 import { useSymbolStore } from '@/stores/symbol'
+import OrderTable from './OrderTable.vue'
 
 const props = defineProps({ title: { type: String } })
 const marketDepth = useMarketDepthStore()
@@ -11,7 +12,9 @@ const symbol = useSymbolStore()
 <template>
   <h2>{{ props.title }}</h2>
   <h3>{{ symbol.symbol.title }}</h3>
-  <h4>Bids</h4>
+  <OrderTable title="Bids" :data="marketDepth.marketDepth.bids" :limit="5" />
+  <OrderTable title="Asks" :data="marketDepth.marketDepth.asks" :limit="5" />
+  <!-- <h4>Bids</h4>
   <v-table>
     <thead>
       <tr>
@@ -27,5 +30,5 @@ const symbol = useSymbolStore()
         <td>{{ (bid[0] * bid[1]).toFixed(8) }}</td>
       </tr>
     </tbody>
-  </v-table>
+  </v-table> -->
 </template>
