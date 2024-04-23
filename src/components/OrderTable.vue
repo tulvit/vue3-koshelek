@@ -1,8 +1,7 @@
 <script setup lang="ts">
 const props = defineProps({
   title: { type: String },
-  data: { type: Object },
-  limit: { type: Number }
+  data: { type: Object }
 })
 </script>
 
@@ -18,7 +17,7 @@ const props = defineProps({
         </tr>
       </thead>
       <tbody class="bg-slate-200">
-        <tr v-for="(bid, index) in data.slice(0, props.limit)" :key="index">
+        <tr v-for="(bid, index) in data" :key="index">
           <td>{{ bid[0] }}</td>
           <td class="hidden md:table-cell">{{ bid[1] }}</td>
           <td>{{ (bid[0] * bid[1]).toFixed(8) }}</td>
@@ -30,7 +29,7 @@ const props = defineProps({
 
 <style scoped>
 .v-table {
-  max-height: 100vh;
+  max-height: 95vh;
 }
 .v-table__wrapper {
   overflow-x: hidden;
