@@ -17,6 +17,6 @@ const hardcodedOptions = ref([
   <main>
     <h1>{{ props.title }}</h1>
     <SelectPair :options="hardcodedOptions" title="Settings" />
-    <PairLog title="Change log" />
+    <PairLog title="Change log:" />
   </main>
 </template>

@@ -20,13 +20,17 @@ const formatDate = (date: Date) => {
 </script>
 
 <template>
-  <h2>{{ props.title }}</h2>
-  <v-list lines="one">
+  <h2 class="text-xl">{{ props.title }}</h2>
+  <v-list lines="one" v-if="log.log.length > 0" class="last:bg-gray-100 py-0">
     <v-list-item
       v-for="item in log.log"
       :key="item"
       :title="item.pair.from + ' to ' + item.pair.to"
       :subtitle="formatDate(item.time)"
+      class="last:bg-gray-200"
     ></v-list-item>
   </v-list>
+  <div v-else>
+    <p class="text-gray-400">no changes</p>
+  </div>
 </template>
