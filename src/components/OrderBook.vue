@@ -8,12 +8,6 @@ const props = defineProps({ title: { type: String } })
 const marketDepth = useMarketDepthStore()
 const symbol = useSymbolStore()
 const limit = ref(100)
-console.log(
-  'sorted my array',
-  Array.from(marketDepth.marketDepth.bids)
-    .slice(0, 10)
-    .sort((a, b) => a[0] - b[0])
-)
 </script>
 
 <template>

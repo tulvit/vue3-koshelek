@@ -7,8 +7,10 @@ const subscribeDepth = () => {
   const connection = ref()
   const data = ref({})
 
-  const connect = () => {
-    connection.value = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@depth')
+  const connect = (symbol: string) => {
+    connection.value = new WebSocket(
+      `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@depth`
+    )
     connection.value.onmessage = function (e) {
       data.value = JSON.parse(e.data)
       marketDepth.update(data.value)
@@ -19,7 +21,12 @@ const subscribeDepth = () => {
     }
   }
 
-  return { connect, connection }
+  const closeConnection = () => {
+    console.log('connection was closed')
+    connection.value.close()
+  }
+
+  return { connect, closeConnection, connection }
 }
 
 export default subscribeDepth
