@@ -8,6 +8,12 @@ const props = defineProps({ title: { type: String } })
 const marketDepth = useMarketDepthStore()
 const symbol = useSymbolStore()
 const limit = ref(100)
+console.log(
+  'sorted my array',
+  Array.from(marketDepth.marketDepth.bids)
+    .slice(0, 10)
+    .sort((a, b) => a[0] - b[0])
+)
 </script>
 
 <template>
@@ -24,8 +30,22 @@ const limit = ref(100)
   ></v-select>
   <div class="max-height-screen">
     <div class="flex flex-col md:flex-row gap-5">
-      <OrderTable title="Bids" :data="marketDepth.marketDepth.bids.slice(0, limit)" />
-      <OrderTable title="Asks" :data="marketDepth.marketDepth.asks.slice(0, limit)" />
+      <OrderTable
+        title="Bids"
+        :data="
+          Array.from(marketDepth.marketDepth.bids)
+            .sort((a, b) => b[0] - a[0])
+            .slice(0, limit)
+        "
+      />
+      <OrderTable
+        title="Asks"
+        :data="
+          Array.from(marketDepth.marketDepth.asks)
+            .sort((a, b) => a[0] - b[0])
+            .slice(0, limit)
+        "
+      />
     </div>
   </div>
 </template>
