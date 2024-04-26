@@ -5,18 +5,19 @@ const subscribeDepth = () => {
   const marketDepth = useMarketDepthStore()
   const error = ref(null)
   const connection = ref()
-  const data = ref({})
+  //const data = ref({ a: Array<Array<string>>, b: Array<Array<string>> })
 
   const connect = (symbol: string) => {
     connection.value = new WebSocket(
       `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@depth`
     )
-    connection.value.onmessage = function (e) {
-      data.value = JSON.parse(e.data)
-      marketDepth.update(data.value)
+    connection.value.onmessage = function (e: MessageEvent) {
+      //data.value = JSON.parse(e.data)
+      //marketDepth.update(data.value)
+      marketDepth.update(JSON.parse(e.data))
     }
 
-    connection.value.onopen = function (e) {
+    connection.value.onopen = function () {
       console.log('Successfully connected to the echo websocket server...')
     }
   }

@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
 const getDepth = () => {
-  const depth = ref([])
+  const depth = ref({ bids: Array(), asks: Array(), lastUpdateId: Number(0) })
   const error = ref(null)
 
   const load = async (symbol: string) => {
