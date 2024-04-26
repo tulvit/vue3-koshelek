@@ -16,7 +16,7 @@ symbol.set({ value: 'BTCUSDT', title: 'BTCUSDT' })
 load(symbol.symbol.value)
 connect(symbol.symbol.value)
 
-symbol.$subscribe((mutation, state) => {
+symbol.$subscribe(() => {
   load(symbol.symbol.value)
   closeConnection()
   connect(symbol.symbol.value)
