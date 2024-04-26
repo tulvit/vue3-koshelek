@@ -28,7 +28,7 @@ const subscribeDepth = () => {
       }
       if (data.value.U == marketDepth.marketDepth.lastUpdateId + 1) {
         //While listening to the stream, each new event's U should be equal to the previous event's u+1.
-        console.log('udated')
+        console.log('updated')
         marketDepth.update(JSON.parse(e.data))
       }
       if (
