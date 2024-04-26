@@ -31,8 +31,8 @@ watch(depth, () => {
   <TheHeader
     title="Test assignment"
     :links="[
-      { to: '/', title: 'Settings' },
-      { to: '/order', title: 'Order Book' }
+      { to: '/vue3-koshelek/', title: 'Settings' },
+      { to: '/vue3-koshelek/order', title: 'Order Book' }
     ]"
   />
   <RouterView />
