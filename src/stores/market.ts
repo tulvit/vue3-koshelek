@@ -21,7 +21,7 @@ export const useMarketDepthStore = defineStore('marketDepth', () => {
     marketDepth.value.lastUpdateId = data.lastUpdateId
   }
 
-  function update(data: { a: Array<Array<string>>; b: Array<Array<string>> }) {
+  function update(data: { a: Array<Array<string>>; b: Array<Array<string>>; u: 0 }) {
     data.b.map((value) => {
       const price = value.shift()
       const amount = value.shift()
@@ -40,7 +40,12 @@ export const useMarketDepthStore = defineStore('marketDepth', () => {
         marketDepth.value.asks.delete(marketDepth.value.asks.keys().next().value)
       }
     })
+    marketDepth.value.lastUpdateId = data.u
   }
 
-  return { marketDepth, save, update }
+  function $reset() {
+    marketDepth.value = { bids: new Map(), asks: new Map(), lastUpdateId: 0 }
+  }
+
+  return { marketDepth, save, update, $reset }
 })
